@@ -25,6 +25,7 @@
         </p>
       </div>
     </div>
+    <hr class="w-11/12 border-red-400 mx-auto" />
     <div class="grid grid-cols-2 border-l-2 border-r-2 py-1">
       <div>
         <p class="text-gray-400 font-bold pt-1 text-xs text-center">
@@ -37,6 +38,7 @@
         </p>
       </div>
     </div>
+    <hr class="w-11/12 border-red-400 mx-auto" />
     <div class="grid grid-cols-2 gap-1 border-r-2 border-l-2 px-1 py-2">
       <CardRounded v-show="this.$route.name == 'index'" />
       <CardRounded v-show="this.$route.name == 'index'" />
@@ -45,7 +47,9 @@
       <CardRounded v-show="this.$route.name == 'index' || 'DetailOutlet'" />
       <CardRounded v-show="this.$route.name == 'index' || 'DetailOutlet'" />
     </div>
-    <ThePoin class="border-b-2" />
+    <hr class="w-11/12 border-red-400 mx-auto" />
+    <ThePoin class="py-1" />
+    <hr class="w-11/12 border-red-400 mx-auto" />
     <nuxt-link to="/detailpenjualan">
       <ButtonDetail v-show="this.$route.name == 'index'" />
     </nuxt-link>

@@ -125,12 +125,15 @@
           <td class="px-0 pixel:pl-3 proportional-nums text-xs font-bold">
             Rp. 1.937.678.111
           </td>
-          <td class="px-0 proportional-nums text-xs font-bold pixel:pl-3">
+          <td class="px-0 pr-2 proportional-nums text-xs font-bold pixel:pl-3">
             Rp. 1.137.678.111
           </td>
           <td class="px-0 text-xs proportional-nums font-bold">111,11%</td>
         </tr>
       </table>
+      <div class="">
+        <p class="text-center">RINGKASAN PENJUALAN QUARTER</p>
+      </div>
     </div>
   </div>
 </template>

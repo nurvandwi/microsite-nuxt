@@ -71,12 +71,7 @@
       <div class="grid grid-cols-4 gap-2">
         <div class="py-2 col-span-2">
           <div class="border-2 border-gray-400 rounded-xl">
-            <img
-              class="object-cover rounded-xl"
-              src="~/assets/image/mdls.png"
-              alt=""
-              srcset=""
-            />
+            <img class="object-cover rounded-xl" src="#" alt="" srcset="" />
             <div class="bg-purple-200 rounded-b-xl">
               <div class="grid grid-cols-8 py-1">
                 <div class="col-start-1">

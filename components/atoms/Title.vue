@@ -4,16 +4,7 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    styleTitle: {
-      type: String,
-      required: true,
-    },
-  },
+  props: ['title', 'styleTitle'],
 }
 </script>
 

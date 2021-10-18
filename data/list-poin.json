@@ -1,0 +1,16 @@
+{
+    "list": [
+        {
+            "caption": "Poin Perolehan",
+            "poin": "percentage"
+        },
+        {
+            "caption": "Penukaran Poin",
+            "poin": "percentage"
+        },
+        {
+            "caption": "Sisa Poin",
+            "poin": "percentage"
+        }
+    ]
+}

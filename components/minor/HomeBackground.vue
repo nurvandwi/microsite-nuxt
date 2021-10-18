@@ -18,7 +18,6 @@
 
     <div class="py-72 mx-auto xl:w-full absolute h-screen">
       <div class="px-2 py-3 bg-gray-100 rounded-t-2xl p-20">
-        <div class="text-center"></div>
         <div class="max-w-md mx-auto">
           <p>Hai, <span class="font-bold">Budi Setiawan</span></p>
           <p class="text-xs lg:text-blue">

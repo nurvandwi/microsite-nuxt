@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Home />
+    <TemplateHome />
   </div>
 </template>
 
 <script>
-import Home from '../components/organisms/Home.vue'
+import TemplateHome from '../components/Template/TemplateHome.vue'
 export default {
   components: {
-    Home,
+    TemplateHome,
   },
 }
 </script>

@@ -1,21 +1,14 @@
 <template>
   <div :class="styleBgSubtitle">
-    <p :class="styleSubtitle">Mondelez Vaganza</p>
+    <p :class="styleSubtitle">
+      {{ subtitle }}
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    styleBgSubtitle: {
-      type: String,
-      required: true,
-    },
-    styleSubtitle: {
-      type: String,
-      required: true,
-    },
-  },
+  props: ['styleBgSubtitle', 'styleSubtitle', 'subtitle'],
 }
 </script>
 

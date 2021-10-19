@@ -39,22 +39,90 @@
                 :style-paragraph="'text-xxs text-gray-400 font-bold'"
                 :paragraph="'Tekan detail untuk lihat ringkasan penjualan'"
               />
-              <Button
-                :title-button="'Detail'"
-                :style-button="'border-2 rounded-full py-1 bg-pink-300'"
-                :style-title-button="'text-xs text-black font-bold text-center'"
-              />
+              <nuxt-link to="/detailpenjualan">
+                <Button
+                  :title-button="'Detail'"
+                  :style-button="'border-2 rounded-full py-1 bg-pink-300'"
+                  :style-title-button="'text-xs text-black font-bold text-center'"
+                />
+              </nuxt-link>
             </div>
           </template>
         </TableTwoColoumn>
-        <TableFourColoumn :data-table-cluster="dataTableCluster">
+        <TableFourColoumn
+          :title-header="'KLUSTER PERSENTASE PENCAPAIAN'"
+          :style-header="'px-2 py-3 bg-red-600 border-2 rounded-t-2xl'"
+          :data-table-cluster="dataTableCluster"
+        >
+          <template #thead>
+            <thead>
+              <tr class="">
+                <th
+                  v-for="list in listTheadCluster"
+                  :key="list"
+                  class="px-1 py-1"
+                >
+                  <p
+                    class="
+                      bg-purple-50
+                      rounded-full
+                      text-gray-400
+                      px-4
+                      py-2
+                      text-xxs
+                    "
+                  >
+                    {{ list }}
+                  </p>
+                </th>
+              </tr>
+            </thead>
+          </template>
+          <template #trow>
+            <tr
+              v-for="data in dataTableCluster"
+              :key="data.cluster"
+              class="py-2"
+            >
+              <td class="px-1 py-1 text-left text-xs">{{ data.cluster }}</td>
+              <td class="py-1 text-left proportional-nums text-xxs">
+                Rp. {{ data.aktualconvert }}
+              </td>
+              <td class="py-1 proportional-nums text-xxs text-left">
+                Rp. {{ data.targetconvert }}
+              </td>
+              <td class="px-0 py-1 proportional-nums text-xxs">
+                {{ data.pencapaian }}
+              </td>
+            </tr>
+          </template>
         </TableFourColoumn>
+        <Title
+          class="pt-2"
+          :title="'10 Besar Pencapaian Nasional'"
+          :style-title="'font-bold'"
+        />
+
+        <Subtitle
+          :style-subtitle="'font-normal text-sm'"
+          :subtitle="'Pilih tombol yang akan ditampilkan detail penjualannya'"
+        />
+        <Tabs
+          :data-table-region="dataTableRegion"
+          :data-table-wilayah="dataTableWilayah"
+          :data-table-area="dataTableArea"
+          :data-table-distributor="dataTableDistributor"
+          :data-table-outlet="dataTableOutlet"
+        />
       </template>
     </CardWithContent>
   </div>
 </template>
 
 <script>
+import Tabs from '../molecules/Tabs.vue'
+import Title from '../atoms/Title.vue'
+import Subtitle from '../atoms/Subtitle.vue'
 import TableFourColoumn from '../molecules/TableFourColoumn.vue'
 import Paragraph from '../atoms/Paragraph.vue'
 import Button from '../atoms/Button.vue'
@@ -64,6 +132,9 @@ import CardWithContent from '../molecules/CardWithContent.vue'
 import Banner from '../molecules/Banner.vue'
 export default {
   components: {
+    Tabs,
+    Title,
+    Subtitle,
     TableFourColoumn,
     Paragraph,
     TableTwoColoumn,
@@ -72,7 +143,21 @@ export default {
     ButtonGroup,
     Button,
   },
-  props: ['userName', 'dataTableNational', 'dataTableCluster'],
+  props: [
+    'userName',
+    'dataTableNational',
+    'dataTableCluster',
+    'dataTableRegion',
+    'dataTableWilayah',
+    'dataTableArea',
+    'dataTableDistributor',
+    'dataTableOutlet',
+  ],
+  data() {
+    return {
+      listTheadCluster: ['BULAN', 'TARGET', 'AKTUAL', '%'],
+    }
+  },
   methods: {},
 }
 </script>

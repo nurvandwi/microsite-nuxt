@@ -5,22 +5,14 @@
         <img src="image/left_arrow.svg" alt="" srcset="" />
       </div>
       <div class="self-center mx-auto">
-        <Paragraph
-          :paragraph="'RINGKASAN DATA PENJUALAN'"
-          :styleParagraph="'text-center text-md text-white'"
-        />
+        <p class="text-center text-md text-white">RINGKASAN DATA PENJUALAN</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Paragraph from '../atoms/Paragraph.vue'
-export default {
-  components: {
-    Paragraph,
-  },
-}
+export default {}
 </script>
 
 <style>

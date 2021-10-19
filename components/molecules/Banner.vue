@@ -11,6 +11,7 @@
       <Subtitle
         :style-bg-subtitle="'text-center bg-orange mx-auto w-60 xl:w-60 rounded-full '"
         :style-subtitle="'text-2xl italic text-white py-0.5 font-normal'"
+        :subtitle="'Mondelez Vaganza'"
       />
     </div>
   </div>

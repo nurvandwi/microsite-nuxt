@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TemplateSellingDetail from '../components/Template/TemplateSellingDetail.vue'
+import TemplateSellingDetail from '../../components/Template/TemplateSellingDetail.vue'
 export default {
   components: {
     TemplateSellingDetail,

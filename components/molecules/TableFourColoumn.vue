@@ -30,7 +30,7 @@ export default {
   data() {
     return {}
   },
-  props: ['dataTableCluster', 'titleHeader', 'styleHeader'],
+  props: ['titleHeader', 'styleHeader'],
 }
 </script>
 

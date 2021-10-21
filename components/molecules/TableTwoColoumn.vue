@@ -1,6 +1,7 @@
 <template>
   <div class="py-2 mx-auto xl:w-full">
     <slot name="tableTitle"></slot>
+
     <div class="grid grid-cols-2 border-r-2 border-l-2">
       <div>
         <p class="text-gray-400 font-bold text-xs text-center">

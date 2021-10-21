@@ -5,14 +5,16 @@
         <img src="image/left_arrow.svg" alt="" srcset="" />
       </div>
       <div class="self-center mx-auto">
-        <p class="text-center text-md text-white">RINGKASAN DATA PENJUALAN</p>
+        <p class="text-center text-md text-white">{{ NavTitle }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['NavTitle'],
+}
 </script>
 
 <style>

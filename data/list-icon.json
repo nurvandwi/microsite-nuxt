@@ -3,27 +3,27 @@
         {
             "name": "Wilayah",
             "src": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/24/000000/external-location-map-location-flatart-icons-outline-flatarticons-13.png",
-            "link": "/detailwilayah"
+            "link": "/wilayah-detail"
         },
         {
             "name": "Region",
             "src": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/24/000000/external-location-map-location-flatart-icons-outline-flatarticons-13.png",
-            "link": "/detailregion"
+            "link": "/region-detail"
         },
         {
             "name": "Area",
             "src": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/24/000000/external-location-map-location-flatart-icons-outline-flatarticons-13.png",
-            "link": "/detailarea"
+            "link": "/area-detail"
         },
         {
             "name": "Distributor",
             "src": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/24/000000/external-location-map-location-flatart-icons-outline-flatarticons-13.png",
-            "link": "/detaildistributor"
+            "link": "/distributor-detail"
         },
         {
             "name": "Outlet",
             "src": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/24/000000/external-location-map-location-flatart-icons-outline-flatarticons-13.png",
-            "link": "/detailoutlet"
+            "link": "/outlet-detail"
         }
     ]
 }

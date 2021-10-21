@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar :nav-title="'RINGKASAN DATA PENJUALAN'" />
     <div class="py-2 px-2">
       <TableFourColoumn
         :title-header="'RINGKASAN PENJUALAN PER QUARTER'"
@@ -92,11 +92,11 @@
 import TableFourColoumn from '../molecules/TableFourColoumn.vue'
 import Navbar from '../molecules/Navbar.vue'
 export default {
-  props: ['dataTableQuarter', 'dataTableTahun'],
   components: {
     Navbar,
     TableFourColoumn,
   },
+  props: ['dataTableQuarter', 'dataTableTahun'],
   data() {
     return {
       listThead: ['QUARTER', 'TARGET', 'AKTUAL', '%'],

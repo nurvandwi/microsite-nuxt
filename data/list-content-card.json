@@ -30,5 +30,10 @@
             "title": "Progress",
             "point": "percentage"
         }
-    ]
+    ],
+    "list_2": {
+        "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+        "title": "Pencapaian",
+        "point": "1"
+    }
 }

@@ -43,7 +43,14 @@ export default {
       activeTab: 0,
     }
   },
-  methods: {},
+  methods: {
+    getTab() {
+      this.$emit('getTab', this.activeTab)
+    },
+  },
+  watch: {
+    activeTab: 'getTab',
+  },
 }
 </script>
 

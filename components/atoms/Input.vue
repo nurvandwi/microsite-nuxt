@@ -21,6 +21,8 @@
           w-7/7
           pl-10
         "
+        v-model="keyword"
+        @change="sendKeyword"
       />
       <div>
         <a class="py-5">
@@ -47,7 +49,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      keyword: '',
+    }
+  },
+  methods: {
+    sendKeyword(event) {
+      this.$emit('dataKeyword', event.target.value)
+    },
+  },
+}
 </script>
 
 <style>

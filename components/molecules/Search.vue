@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <Input> </Input>
+    <Input @dataKeyword="keyword"> </Input>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 import Input from '../atoms/Input.vue'
 export default {
   components: { Input },
+  methods: {
+    keyword(value) {
+      this.$emit('getKeyword', value)
+    },
+  },
 }
 </script>
 

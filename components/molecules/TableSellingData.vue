@@ -6,20 +6,10 @@
     >
       <div class="max-w-md mx-auto">
         <Title
-          v-if="title == 'WEST INDONESIA'"
           :style-title="'text-center text-white font-bold'"
-          :title="'WI'"
+          :title="title_id"
         />
-        <Title
-          v-if="title == 'EAST INDONESIA'"
-          :style-title="'text-center text-white font-bold'"
-          :title="'EI'"
-        />
-        <Title
-          v-if="title == 'NORTH INDONESIA'"
-          :style-title="'text-center text-white font-bold'"
-          :title="'NI'"
-        />
+
         <Subtitle
           :style-subtitle="' text-center text-white font-bold'"
           :subtitle="title"
@@ -55,7 +45,9 @@
           <p class="text-gray-400 font-bold pt-1 text-xs text-center">
             SELISIH PENJUALAN
           </p>
-          <p class="text-gray-900 font-bold text-md text-center">Rp.{{}}</p>
+          <p class="text-gray-900 font-bold text-md text-center">
+            Rp.{{ selisih }}
+          </p>
         </div>
         <div class="self-center px-2">
           <CardWithThreeColoumn :content="content" :points="pencapaian" />
@@ -97,7 +89,7 @@ import CardWithThreeColoumn from '../molecules/CardWithThreeColoumn.vue'
 import Title from '../atoms/Title.vue'
 import Subtitle from '../atoms/Subtitle.vue'
 export default {
-  props: ['title', 'target', 'aktual', 'pencapaian'],
+  props: ['title', 'target', 'aktual', 'pencapaian', 'title_id', 'selisih'],
   components: {
     Button,
     Title,

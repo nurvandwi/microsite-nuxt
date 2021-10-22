@@ -2,16 +2,18 @@
   <div>
     <Navbar :nav-title="'DATA PENJUALAN PER WILAYAH'" />
     <div class="px-2">
-      <Search />
-      <Tabs url="wilayah-detail" class="py-1" :tabs="tabs">
+      <Search @getKeyword="getKeyword" />
+      <Tabs @getTab="getTab" url="wilayah-detail" class="" :tabs="tabs">
         <template #activeTab_0>
           <TableSellingData
-            v-for="data in dataTableWilayah"
+            v-for="data in dataWilayah"
             :key="data.wilayah"
             :title="data.wilayah"
             :target="data.targetconvert"
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
+            :selisih="data.diffconvert"
+            :title_id="data.wilayah_id"
           />
         </template>
         <template #activeTab_1>
@@ -20,6 +22,7 @@
             :key="data.region"
             :title="data.region"
             :target="data.targetconvert"
+            :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
           />
@@ -30,6 +33,7 @@
             :key="data.city"
             :title="data.city"
             :target="data.targetconvert"
+            :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
           />
@@ -40,6 +44,7 @@
             :key="data.distributor"
             :title="data.distributor"
             :target="data.targetconvert"
+            :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
           />
@@ -50,6 +55,7 @@
             :key="data.outlet_name"
             :title="data.outlet_name"
             :target="data.targetconvert"
+            :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
           />
@@ -82,9 +88,30 @@ export default {
   data() {
     return {
       tabs: ['Wilayah', 'Region', 'Area', 'Distributor', 'Outlet'],
+      tabCategories: '',
+      dataWilayah: [],
     }
   },
-  methods: {},
+
+  methods: {
+    getTab(value) {
+      this.tabCategories = value
+    },
+    getKeyword(value) {
+      if (+this.tabCategories === 0) {
+        const data = this.dataWilayah.filter((data) => {
+          return data.wilayah.toLowerCase().includes(value.toLowerCase())
+        })
+        this.dataWilayah = data
+      }
+    },
+    setData() {
+      this.dataWilayah = this.dataTableWilayah
+    },
+  },
+  watch: {
+    dataTableWilayah: 'setData',
+  },
 }
 </script>
 

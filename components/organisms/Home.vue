@@ -16,12 +16,52 @@
           </p>
         </div>
         <ButtonGroup />
-        <TableTwoColoumn :data-table-national="dataTableNational">
+        <TableTwoColoumn>
           <template #tableTitle>
             <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
               <div class="max-w-md mx-auto">
                 <p class="text-center text-white font-bold">NASIONAL</p>
               </div>
+            </div>
+          </template>
+          <template #tableContent>
+            <div class="grid grid-cols-2 border-r-2 border-l-2">
+              <div>
+                <p class="text-gray-400 font-bold text-xs text-center">
+                  TARGET PENJUALAN
+                </p>
+                <p class="text-gray-900 font-bold text-sm text-center">
+                  Rp.{{ dataTableNational.targetconvert }}
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-400 font-bold text-xs text-center">
+                  AKTUAL PENJUALAN
+                </p>
+                <p class="text-gray-900 font-bold text-sm text-center">
+                  Rp.{{ dataTableNational.aktualconvert }}
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 py-2 border-r-2 border-l-2">
+              <div>
+                <p class="text-gray-400 font-bold pt-1 text-xs text-center">
+                  SELISIH PENJUALAN
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-900 font-bold text-sm text-center">
+                  Rp.{{ dataTableNational.diffconvert }}
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
+              <CardWithThreeColoumn
+                v-for="content in contents"
+                :key="content.title"
+                :content="content"
+                :points="getPoint(content.point)"
+              />
             </div>
           </template>
           <template #buttonDetail>
@@ -344,6 +384,7 @@
 </template>
 
 <script>
+import CardWithThreeColoumn from '../molecules/CardWithThreeColoumn.vue'
 import Tabs from '../molecules/Tabs.vue'
 import Title from '../atoms/Title.vue'
 import Subtitle from '../atoms/Subtitle.vue'
@@ -354,8 +395,10 @@ import TableTwoColoumn from '../molecules/TableTwoColoumn.vue'
 import ButtonGroup from '../molecules/ButtonGroup.vue'
 import CardWithContent from '../molecules/CardWithContent.vue'
 import Banner from '../molecules/Banner.vue'
+import listContentCard from '../../data/list-content-card.json'
 export default {
   components: {
+    CardWithThreeColoumn,
     Tabs,
     Title,
     Subtitle,
@@ -382,9 +425,14 @@ export default {
       listTheadCluster: ['BULAN', 'TARGET', 'AKTUAL', '%'],
       listThead: ['KETERANGAN', 'TARGET', 'AKTUAL', '%'],
       tabs: ['Wilayah', 'Region', 'Area', 'Distributor', 'Outlet'],
+      contents: listContentCard.list,
     }
   },
-  methods: {},
+  methods: {
+    getPoint(key) {
+      return this.dataTableNational[key]
+    },
+  },
 }
 </script>
 

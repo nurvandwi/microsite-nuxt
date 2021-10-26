@@ -68,7 +68,7 @@
           </p>
         </div>
         <div class="self-center col-span-5 px-2">
-          <nuxt-link to="/selling-detail/wi">
+          <nuxt-link :to="`/ringkasan-penjualan-wilayah/${title_id}`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"

@@ -1,0 +1,20 @@
+{
+    "list": [
+        {
+            "title": "Foto atau Upload Formulir Registrasi",
+            "icon": "https://img.icons8.com/ios/40/000000/camera--v3.png"
+        },
+        {
+            "title": "Foto atau Upload Formulir Redemption",
+            "icon": "https://img.icons8.com/ios/40/000000/camera--v3.png"
+        },
+        {
+            "title": "Cek Data Registrasi",
+            "icon": "https://img.icons8.com/ios/40/000000/camera--v3.png"
+        },
+        {
+            "title": "Transaksi Penukaran",
+            "icon": "https://img.icons8.com/ios/40/000000/camera--v3.png"
+        }
+    ]
+}

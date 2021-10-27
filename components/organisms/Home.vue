@@ -16,7 +16,11 @@
           </p>
         </div>
         <ButtonGroup />
-        <TableTwoColoumn>
+        <TableTwoColoumn
+          :poin-perolehan="dataTableNational.achieveconvert"
+          :poin-penukaran="dataTableNational.redeemconvert"
+          :sisa-poin="dataTableNational.diffconvert"
+        >
           <template #tableTitle>
             <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
               <div class="max-w-md mx-auto">
@@ -57,10 +61,28 @@
             </div>
             <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
               <CardWithThreeColoumn
-                v-for="content in contents"
-                :key="content.title"
-                :content="content"
-                :points="getPoint(content.point)"
+                :title="'Pencapaian'"
+                :points="dataTableNational.percentage"
+              />
+              <CardWithThreeColoumn
+                :title="'AO/RO'"
+                :points="dataTableNational.aoro"
+              />
+              <CardWithThreeColoumn
+                :title="'Registrasi'"
+                :points="dataTableNational.regist"
+              />
+              <CardWithThreeColoumn
+                :title="'Registrasi'"
+                :points="dataTableNational.notregist"
+              />
+              <CardWithThreeColoumn
+                :title="'Total Outlet'"
+                :points="dataTableNational.total_outlet"
+              />
+              <CardWithThreeColoumn
+                :title="'Progres'"
+                :points="dataTableNational.percen_regist"
               />
             </div>
           </template>
@@ -395,7 +417,6 @@ import TableTwoColoumn from '../molecules/TableTwoColoumn.vue'
 import ButtonGroup from '../molecules/ButtonGroup.vue'
 import CardWithContent from '../molecules/CardWithContent.vue'
 import Banner from '../molecules/Banner.vue'
-import listContentCard from '../../data/list-content-card.json'
 export default {
   components: {
     CardWithThreeColoumn,
@@ -425,7 +446,6 @@ export default {
       listTheadCluster: ['BULAN', 'TARGET', 'AKTUAL', '%'],
       listThead: ['KETERANGAN', 'TARGET', 'AKTUAL', '%'],
       tabs: ['Wilayah', 'Region', 'Area', 'Distributor', 'Outlet'],
-      contents: listContentCard.list,
     }
   },
   methods: {

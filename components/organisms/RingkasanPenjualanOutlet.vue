@@ -3,9 +3,13 @@
     <Navbar :nav-title="'RINGKASAN DATA PENJUALAN'" />
     <div class="px-2">
       <TableTwoColoumn
+        class="border-b-2"
         v-show="data.outlet_name != 'Total Pencapaian'"
         v-for="data in dataOutlet"
         :key="data.outlet_name"
+        :poin-perolehan="data.achieveconvert"
+        :poin-penukaran="data.redeemconvert"
+        :sisa-poin="data.diffconvert"
       >
         <template #tableTitle>
           <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
@@ -48,35 +52,27 @@
               </p>
             </div>
           </div>
+          <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
+            <CardWithThreeColoumn :title="'Registrasi'" :points="data.regist" />
+            <CardWithThreeColoumn
+              :title="'Pencapaian'"
+              :points="data.percentage"
+            />
+          </div>
           <div
             class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2"
           ></div>
         </template>
-        <template #buttonDetail>
-          <div
-            class="
-              grid grid-cols-4
-              mx-auto
-              px-4
-              border-r-2 border-l-2 border-b-2
-              py-2
-            "
-          >
-            <Paragraph
-              class="col-span-3 self-center text-left"
-              :style-paragraph="'text-xxs text-gray-400 font-bold'"
-              :paragraph="'Tekan detail untuk lihat ringkasan penjualan'"
-            />
-            <nuxt-link to="/selling-detail">
-              <Button
-                :title-button="'Detail'"
-                :style-button="'border-2 rounded-full py-1 bg-pink-300'"
-                :style-title-button="'text-xs text-black font-bold text-center'"
-              />
-            </nuxt-link>
-          </div>
-        </template>
       </TableTwoColoumn>
+      <div class="grid grid-cols-12 gap-2 py-2">
+        <CardRegistrasi
+          v-for="list in lists"
+          :key="list.title"
+          :data-title="list.title"
+          :data-img="list.icon"
+        ></CardRegistrasi>
+      </div>
+
       <Title
         class="pt-2"
         :title="'Ringkasan Data Penjualan & Data Poin'"
@@ -114,22 +110,63 @@
               </thead>
             </template>
             <template #trow>
-              <tr class="py-2">
-                <td class="px-1 py-1 text-left text-xxs">{{}}</td>
+              <tr v-for="data in dataQuarter" :key="data.kuartal" class="py-2">
+                <td class="px-1 py-1 text-left text-xxs">{{ data.kuartal }}</td>
                 <td class="py-1 text-left proportional-nums text-xxs">
-                  Rp. {{}}
+                  Rp. {{ data.targetconvert }}
                 </td>
                 <td class="py-1 proportional-nums text-xxs text-left">
-                  Rp. {{}}
+                  Rp. {{ data.aktualconvert }}
                 </td>
-                <td class="px-0 py-1 proportional-nums text-xxs">{{}}</td>
+                <td class="px-0 py-1 proportional-nums text-xxs">
+                  {{ data.pencapaian }}
+                </td>
+              </tr>
+            </template>
+          </TableFourColoumn>
+          <TableFourColoumn
+            :title-header="'RINGKASAN PENJUALAN PER TAHUN'"
+            :style-header="'px-2 py-3 bg-purple-900 border-2 rounded-t-2xl'"
+          >
+            <template #thead>
+              <thead>
+                <tr>
+                  <th class="px-1 py-1" v-for="list in listThead" :key="list">
+                    <p
+                      class="
+                        bg-purple-50
+                        rounded-full
+                        text-gray-400
+                        px-3.5
+                        py-2
+                        text-xxs
+                      "
+                    >
+                      {{ list }}
+                    </p>
+                  </th>
+                </tr>
+              </thead>
+            </template>
+            <template #trow>
+              <tr v-for="data in dataMonth" :key="data.bulan" class="py-2">
+                <td class="px-1 py-1 text-left text-xxs">{{ data.bulan }}</td>
+                <td class="py-1 text-left proportional-nums text-xxs">
+                  Rp. {{ data.targetconvert }}
+                </td>
+                <td class="py-1 proportional-nums text-xxs text-left">
+                  Rp. {{ data.aktualconvert }}
+                </td>
+                <td class="px-0 py-1 proportional-nums text-xxs">
+                  {{ data.pencapaian }}
+                </td>
               </tr>
             </template>
           </TableFourColoumn>
         </template>
         <template #activeTab_1>
           <TableFourColoumn
-            :title-header="'RINGKASAN PER QUARTER'"
+            :title-header="'RINGKASAN PENJUALAN PER QUARTER'"
             :style-header="'px-2 py-3 bg-purple-900 border-2 rounded-t-2xl'"
           >
             <template #thead>
@@ -172,6 +209,9 @@
 </template>
 
 <script>
+import CardWithThreeColoumn from '../molecules/CardWithThreeColoumn.vue'
+import listCardRegistrasi from '../../data/list-card-registrasi.json'
+import CardRegistrasi from '../molecules/CardRegistrasi.vue'
 import Title from '../atoms/Title.vue'
 import Subtitle from '../atoms/Subtitle.vue'
 import TableFourColoumn from '../molecules/TableFourColoumn.vue'
@@ -188,16 +228,23 @@ export default {
     TableTwoColoumn,
     Tabs,
     TableFourColoumn,
+    CardRegistrasi,
+    CardWithThreeColoumn,
   },
   data() {
     return {
-      contents: listContentCard.list,
+      lists: listCardRegistrasi.list,
+      contents: listContentCard.list3,
       listThead: ['BULAN', 'TARGET', 'AKTUAL', '%'],
       tabs: ['Penjualan', 'Point Reward'],
       params: this.$route.params.name,
     }
   },
-  methods: {},
+  methods: {
+    getPoint(key) {
+      return this.dataOutlet[key]
+    },
+  },
 }
 </script>
 

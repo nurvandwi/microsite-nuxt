@@ -6,6 +6,9 @@
         v-show="data.wilayah != 'Total Pencapaian'"
         v-for="data in dataRingkasanWilayah"
         :key="data.wilayah"
+        :poin-perolehan="data.achieveconvert"
+        :poin-penukaran="data.redeemconvert"
+        :sisa-poin="data.diffconvert"
       >
         <template #tableTitle>
           <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
@@ -52,10 +55,22 @@
           </div>
           <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
             <CardWithThreeColoumn
-              v-for="content in contents"
-              :key="content.title"
-              :content="content"
-              :points="getPoint(content.point)"
+              :title="'Pencapaian'"
+              :points="data.percentage"
+            />
+            <CardWithThreeColoumn :title="'AO/RO'" :points="data.aoro" />
+            <CardWithThreeColoumn :title="'Registrasi'" :points="data.regist" />
+            <CardWithThreeColoumn
+              :title="'Registrasi'"
+              :points="data.notregist"
+            />
+            <CardWithThreeColoumn
+              :title="'Total Outlet'"
+              :points="data.total_outlet"
+            />
+            <CardWithThreeColoumn
+              :title="'Progres'"
+              :points="data.percen_regist"
             />
           </div>
         </template>
@@ -330,7 +345,6 @@ import Button from '../atoms/Button.vue'
 import CardWithThreeColoumn from '../molecules/CardWithThreeColoumn.vue'
 import TableTwoColoumn from '../molecules/TableTwoColoumn.vue'
 import Navbar from '../molecules/Navbar.vue'
-import listContentCard from '../../data/list-content-card.json'
 
 export default {
   props: [
@@ -354,11 +368,12 @@ export default {
   },
   data() {
     return {
-      contents: listContentCard.list,
+      datas: '',
       listThead: ['BULAN', 'TARGET', 'AKTUAL', '%'],
       tabs: ['Region', 'Distributor', 'Area', 'Outlet'],
     }
   },
+  computed: {},
   methods: {
     getPoint(key) {
       return this.dataRingkasanWilayah[key]

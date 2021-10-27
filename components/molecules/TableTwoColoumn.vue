@@ -25,17 +25,14 @@
         :title="'Sisa Poin'"
       />
       <Paragraph
-        :style-paragraph="'text-base font-bold'"
-        :paragraph="'234234'"
+        :style-paragraph="'text-xs font-bold'"
+        :paragraph="poinPerolehan"
       />
       <Paragraph
-        :style-paragraph="'text-base font-bold'"
-        :paragraph="'234234'"
+        :style-paragraph="'text-xs font-bold'"
+        :paragraph="poinPenukaran"
       />
-      <Paragraph
-        :style-paragraph="'text-base font-bold'"
-        :paragraph="'234234'"
-      />
+      <Paragraph :style-paragraph="'text-xs font-bold'" :paragraph="sisaPoin" />
     </div>
     <slot name="buttonDetail"></slot>
   </div>
@@ -45,6 +42,7 @@
 import Paragraph from '../atoms/Paragraph.vue'
 import Title from '../atoms/Title.vue'
 export default {
+  props: ['poinPerolehan', 'poinPenukaran', 'sisaPoin'],
   components: {
     Title,
     Paragraph,

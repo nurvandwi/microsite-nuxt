@@ -25,14 +25,14 @@
         :title="'Sisa Poin'"
       />
       <Paragraph
-        :style-paragraph="'text-xs font-bold'"
+        :style-paragraph="'text-sm font-bold'"
         :paragraph="poinPerolehan"
       />
       <Paragraph
-        :style-paragraph="'text-xs font-bold'"
+        :style-paragraph="'text-sm font-bold'"
         :paragraph="poinPenukaran"
       />
-      <Paragraph :style-paragraph="'text-xs font-bold'" :paragraph="sisaPoin" />
+      <Paragraph :style-paragraph="'text-sm font-bold'" :paragraph="sisaPoin" />
     </div>
     <slot name="buttonDetail"></slot>
   </div>

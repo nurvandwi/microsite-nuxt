@@ -3,7 +3,13 @@
     <Navbar :nav-title="'DATA PENJUALAN PER WILAYAH'" />
     <div class="px-2">
       <Search @getKeyword="getKeyword" />
-      <Tabs @getTab="getTab" url="wilayah-detail" class="" :tabs="tabs">
+
+      <Tabs
+        @click="addParams"
+        @getTab="getTab"
+        url="wilayah-detail"
+        :tabs="tabs"
+      >
         <template #activeTab_0>
           <TableSellingData
             v-for="data in dataWilayah"
@@ -87,7 +93,24 @@ export default {
 
   data() {
     return {
-      tabs: ['Wilayah', 'Region', 'Area', 'Distributor', 'Outlet'],
+      tabs: [
+        {
+          name: 'Wilayah',
+        },
+        {
+          name: 'Region',
+        },
+        {
+          name: 'Area',
+        },
+        {
+          name: 'Distributor',
+        },
+
+        {
+          name: 'Outlet',
+        },
+      ],
       tabCategories: '',
       dataWilayah: [],
     }
@@ -107,6 +130,15 @@ export default {
     },
     setData() {
       this.dataWilayah = this.dataTableWilayah
+    },
+    addParams(value) {
+      // this.$router.replace({
+      //   path: `${this.$route.path}/${value.toLowerCase()}`,
+      // })
+      this.$router.push({
+        path: `${this.$route.path}`,
+        query: { value },
+      })
     },
   },
   watch: {

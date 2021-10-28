@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 mx-auto xl:w-full">
+  <div class="py-2 mx-auto xl:w-full" v-cloak>
     <div
       v-if="title !== 'Total Pencapaian'"
       class="py-2 bg-purple-900 border rounded-t-2xl p-20"
@@ -50,7 +50,7 @@
           </p>
         </div>
         <div class="self-center px-2">
-          <CardWithThreeColoumn :content="content" :points="pencapaian" />
+          <CardWithThreeColoumn :title="'Pencapaian'" :points="pencapaian" />
         </div>
       </div>
       <div class="grid grid-cols-12 py-1">
@@ -67,8 +67,36 @@
             Tekan tombol lihat detail penjualan
           </p>
         </div>
-        <div class="self-center col-span-5 px-2">
+        <div
+          class="self-center col-span-5 px-2"
+          v-if="$route.fullPath == '/penjualan-perwilayah?value=Outlet'"
+        >
+          <nuxt-link :to="`/ringkasan-penjualan-outlet/100000-ANA047`">
+            <Button
+              :title-button="'Detail'"
+              :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
+              :style-title-button="'text-xs text-black font-bold text-center'"
+            />
+          </nuxt-link>
+        </div>
+        <div
+          class="self-center col-span-5 px-2"
+          v-if="$route.fullPath == '/penjualan-perwilayah?value=Wilayah'"
+        >
           <nuxt-link :to="`/ringkasan-penjualan-wilayah/${title_id}`">
+            <Button
+              :title-button="'Detail'"
+              :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
+              :style-title-button="'text-xs text-black font-bold text-center'"
+            />
+          </nuxt-link>
+        </div>
+
+        <div
+          class="self-center col-span-5 px-2"
+          v-if="$route.fullPath == '/penjualan-perwilayah?value=Area'"
+        >
+          <nuxt-link :to="`/`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"

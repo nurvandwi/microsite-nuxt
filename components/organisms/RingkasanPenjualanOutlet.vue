@@ -53,9 +53,14 @@
             </div>
           </div>
           <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
-            <CardWithThreeColoumn :title="'Registrasi'" :points="data.regist" />
+            <CardWithThreeColoumn
+              :title="'Registrasi'"
+              :icons="'image/check-icon.png'"
+              :points="data.regist"
+            />
             <CardWithThreeColoumn
               :title="'Pencapaian'"
+              :icons="'image/trophy-icon.png'"
               :points="data.percentage"
             />
           </div>

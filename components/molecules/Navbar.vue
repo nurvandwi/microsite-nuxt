@@ -1,9 +1,9 @@
 <template>
   <div class="bg-purple-900">
     <div class="flex py-3 px-4">
-      <div class="mr-auto items-center">
-        <img src="image/left_arrow.svg" alt="" srcset="" />
-      </div>
+      <a @click="to" class="mr-auto self-center">
+        <img class="w-8" src="image/left-arrow.png" alt="" srcset="" />
+      </a>
       <div class="self-center mx-auto">
         <p class="text-center text-md text-white">{{ NavTitle }}</p>
       </div>
@@ -14,6 +14,11 @@
 <script>
 export default {
   props: ['NavTitle'],
+  methods: {
+    to() {
+      this.$router.go(-1)
+    },
+  },
 }
 </script>
 

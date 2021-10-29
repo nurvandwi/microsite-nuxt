@@ -50,7 +50,11 @@
           </p>
         </div>
         <div class="self-center px-2">
-          <CardWithThreeColoumn :title="'Pencapaian'" :points="pencapaian" />
+          <CardWithThreeColoumn
+            :icons="'image/pink-trophy-icon.png'"
+            :title="'Pencapaian'"
+            :points="pencapaian"
+          />
         </div>
       </div>
       <div class="grid grid-cols-12 py-1">
@@ -84,6 +88,18 @@
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Wilayah'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-wilayah/${title_id}`">
+            <Button
+              :title-button="'Detail'"
+              :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
+              :style-title-button="'text-xs text-black font-bold text-center'"
+            />
+          </nuxt-link>
+        </div>
+        <div
+          class="self-center col-span-5 px-2"
+          v-if="$route.fullPath == '/penjualan-perwilayah?value=Region'"
+        >
+          <nuxt-link :to="`/ringkasan-penjualan-region/${title_id}`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"

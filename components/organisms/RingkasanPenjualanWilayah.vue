@@ -8,13 +8,13 @@
         :key="data.wilayah"
         :poin-perolehan="data.achieveconvert"
         :poin-penukaran="data.redeemconvert"
-        :sisa-poin="data.diffconvert"
+        :sisa-poin="data.diff_pointconvert"
       >
         <template #tableTitle>
           <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
             <div class="max-w-md mx-auto">
               <p class="text-center text-white font-bold">
-                {{ data.wilayah_id }}
+                {{ data.head_region_id }}
               </p>
               <p class="text-center text-white font-bold">
                 {{ data.wilayah }}
@@ -56,21 +56,33 @@
           <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
             <CardWithThreeColoumn
               :title="'Pencapaian'"
+              :icons="'image/trophy-icon.png'"
               :points="data.percentage"
             />
-            <CardWithThreeColoumn :title="'AO/RO'" :points="data.aoro" />
-            <CardWithThreeColoumn :title="'Registrasi'" :points="data.regist" />
+            <CardWithThreeColoumn
+              :title="'AO/RO'"
+              :icons="'image/versus-icon.png'"
+              :points="data.aoro"
+            />
             <CardWithThreeColoumn
               :title="'Registrasi'"
+              :icons="'image/check-icon.png'"
+              :points="data.regist"
+            />
+            <CardWithThreeColoumn
+              :title="'Registrasi'"
+              :icons="'image/x-icon.png'"
               :points="data.notregist"
             />
             <CardWithThreeColoumn
               :title="'Total Outlet'"
-              :points="data.total_outlet"
+              :icons="'image/outlet-icon.png'"
+              :points="data.outlet"
             />
             <CardWithThreeColoumn
               :title="'Progres'"
-              :points="data.percen_regist"
+              :icons="'image/loading-icon.png'"
+              :points="data.regist_progress"
             />
           </div>
         </template>

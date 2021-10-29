@@ -19,7 +19,7 @@
             :aktual="data.aktualconvert"
             :pencapaian="data.pencapaian"
             :selisih="data.diffconvert"
-            :title_id="data.wilayah_id"
+            :title_id="data.head_region_id"
           />
         </template>
         <template #activeTab_1>
@@ -27,6 +27,7 @@
             v-for="data in dataTableRegion"
             :key="data.region"
             :title="data.region"
+            :title_id="data.region_id"
             :target="data.targetconvert"
             :selisih="data.diffconvert"
             :aktual="data.aktualconvert"

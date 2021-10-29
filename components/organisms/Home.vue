@@ -62,26 +62,32 @@
             <div class="grid grid-cols-2 gap-1 px-1 py-2 border-r-2 border-l-2">
               <CardWithThreeColoumn
                 :title="'Pencapaian'"
+                :icons="'image/trophy-icon.png'"
                 :points="dataTableNational.percentage"
               />
               <CardWithThreeColoumn
                 :title="'AO/RO'"
+                :icons="'image/vs-icon.png'"
                 :points="dataTableNational.aoro"
               />
               <CardWithThreeColoumn
                 :title="'Registrasi'"
+                :icons="'image/check-icon.png'"
                 :points="dataTableNational.regist"
               />
               <CardWithThreeColoumn
                 :title="'Registrasi'"
+                :icons="'image/x-icon.png'"
                 :points="dataTableNational.notregist"
               />
               <CardWithThreeColoumn
                 :title="'Total Outlet'"
+                :icons="'image/outlet-icon.png'"
                 :points="dataTableNational.total_outlet"
               />
               <CardWithThreeColoumn
                 :title="'Progres'"
+                :icons="'image/loading-icon.png'"
                 :points="dataTableNational.percen_regist"
               />
             </div>
@@ -202,7 +208,7 @@
                   class="py-2"
                 >
                   <td class="px-1 py-1 text-left text-xxs">
-                    {{ data.wilayah }}
+                    {{ data.wilayah || data.outlet_name }}
                   </td>
                   <td class="py-1 text-left proportional-nums text-xxs">
                     Rp. {{ data.targetconvert }}
@@ -211,7 +217,7 @@
                     Rp. {{ data.aktualconvert }}
                   </td>
                   <td class="px-0 py-1 proportional-nums text-xxs">
-                    {{ data.pencapaian }}
+                    {{ data.percentage }}
                   </td>
                 </tr>
               </template>
@@ -393,7 +399,7 @@
                     Rp. {{ data.aktualconvert }}
                   </td>
                   <td class="px-0 py-1 proportional-nums text-xxs">
-                    {{ data.pencapaian }}
+                    {{ data.percentage }}
                   </td>
                 </tr>
               </template>

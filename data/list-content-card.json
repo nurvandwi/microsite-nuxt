@@ -1,27 +1,27 @@
 {
     "list": [
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "/static/image/trophy-icon",
             "title": "Pencapaian"
         },
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "",
             "title": "AO VS RO"
         },
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "",
             "title": "Registrasi"
         },
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "",
             "title": "Registrasi 1"
         },
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "",
             "title": "Total Outlet"
         },
         {
-            "icon": "https://img.icons8.com/material-outlined/24/000000/trophy.png",
+            "icon": "",
             "title": "Progress"
         }
     ]

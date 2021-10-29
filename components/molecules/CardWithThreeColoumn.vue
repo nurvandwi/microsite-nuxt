@@ -2,10 +2,7 @@
   <div class="container py-0.5">
     <div class="flex justify-between border-2 gap-0 rounded-full shadow-sm">
       <div class="self-center">
-        <img
-          class="w-4"
-          src="https://img.icons8.com/material-outlined/24/000000/trophy.png"
-        />
+        <img class="w-8 px-2" :src="icons" />
       </div>
       <div class="self-center">
         <p class="text-xs font-semibold text-left">{{ title }}</p>
@@ -19,7 +16,7 @@
 
 <script>
 export default {
-  props: ['title', 'points'],
+  props: ['title', 'points', 'icons'],
   data() {
     return {}
   },

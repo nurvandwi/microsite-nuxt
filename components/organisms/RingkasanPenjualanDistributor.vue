@@ -3,9 +3,9 @@
     <Navbar :nav-title="'RINGKASAN DATA PENJUALAN'" />
     <div class="px-2">
       <TableTwoColoumn
-        v-show="data.wilayah != 'Total Pencapaian'"
-        v-for="data in dataRingkasanWilayah"
-        :key="data.wilayah"
+        v-show="data.distributor != 'Total Pencapaian'"
+        v-for="data in dataDistributor"
+        :key="data.distributor"
         :poin-perolehan="data.achieveconvert"
         :poin-penukaran="data.redeemconvert"
         :sisa-poin="data.diff_pointconvert"
@@ -14,10 +14,10 @@
           <div class="px-2 py-3 bg-red-600 border-2 rounded-t-2xl p-20">
             <div class="max-w-md mx-auto">
               <p class="text-center text-white font-bold">
-                {{ data.head_region_id }}
+                {{ data.distributor_id }}
               </p>
               <p class="text-center text-white font-bold">
-                {{ data.wilayah }}
+                {{ data.distributor }}
               </p>
             </div>
           </div>
@@ -279,10 +279,8 @@
               </thead>
             </template>
             <template #trow>
-              <tr v-for="data in dataArea" :key="data.area_name" class="py-2">
-                <td class="px-1 py-1 text-left text-xxs">
-                  {{ data.area_name }}
-                </td>
+              <tr v-for="data in dataArea" :key="data.city" class="py-2">
+                <td class="px-1 py-1 text-left text-xxs">{{ data.city }}</td>
                 <td class="py-1 text-left proportional-nums text-xxs">
                   Rp. {{ data.targetconvert }}
                 </td>

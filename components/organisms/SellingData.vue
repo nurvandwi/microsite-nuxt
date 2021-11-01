@@ -37,8 +37,9 @@
         <template #activeTab_2>
           <TableSellingData
             v-for="data in dataTableArea"
-            :key="data.city"
-            :title="data.city"
+            :key="data.area_name"
+            :title="data.area_name"
+            :title_id="data.area_id"
             :target="data.targetconvert"
             :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
@@ -50,6 +51,7 @@
             v-for="data in dataTableDistributor"
             :key="data.distributor"
             :title="data.distributor"
+            :title_id="data.distributor_id"
             :target="data.targetconvert"
             :selisih="data.diffconvert"
             :aktual="data.aktualconvert"
@@ -61,6 +63,7 @@
             v-for="data in dataTableOutlet"
             :key="data.outlet_name"
             :title="data.outlet_name"
+            :title_id="data.outlet_id"
             :target="data.targetconvert"
             :selisih="data.diffconvert"
             :aktual="data.aktualconvert"

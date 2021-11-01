@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 mx-auto xl:w-full" v-cloak>
+  <div class="py-2 mx-auto xl:w-full">
     <div
       v-if="title !== 'Total Pencapaian'"
       class="py-2 bg-purple-900 border rounded-t-2xl p-20"
@@ -11,7 +11,7 @@
         />
 
         <Subtitle
-          :style-subtitle="' text-center text-white font-bold'"
+          :style-subtitle="' text-center text-white font-bold  '"
           :subtitle="title"
         />
       </div>
@@ -75,7 +75,7 @@
           class="self-center col-span-5 px-2"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Outlet'"
         >
-          <nuxt-link :to="`/ringkasan-penjualan-outlet/100000-ANA047`">
+          <nuxt-link :to="`/ringkasan-penjualan-outlet/${title_id}`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
@@ -112,7 +112,19 @@
           class="self-center col-span-5 px-2"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Area'"
         >
-          <nuxt-link :to="`/`">
+          <nuxt-link :to="`/ringkasan-penjualan-area/${title_id}`">
+            <Button
+              :title-button="'Detail'"
+              :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
+              :style-title-button="'text-xs text-black font-bold text-center'"
+            />
+          </nuxt-link>
+        </div>
+        <div
+          class="self-center col-span-5 px-2"
+          v-if="$route.fullPath == '/penjualan-perwilayah?value=Distributor'"
+        >
+          <nuxt-link :to="`/ringkasan-penjualan-distributor/${title_id}`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"

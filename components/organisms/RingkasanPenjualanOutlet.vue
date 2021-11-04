@@ -70,12 +70,34 @@
         </template>
       </TableTwoColoumn>
       <div class="grid grid-cols-12 gap-2 py-2">
+        <nuxt-link
+          class="col-span-6"
+          :to="`/formulir-registrasi/${$route.params.name}`"
+        >
+          <CardRegistrasi
+            :data-title="'Foto atau Upload Formulir Registrasi'"
+            :data-img="'image/registrasi-icon.png'"
+          />
+        </nuxt-link>
+        <nuxt-link
+          class="col-span-6"
+          :to="`/formulir-redemption/${$route.params.name}`"
+        >
+          <CardRegistrasi
+            :data-title="'Foto atau Upload Formulir Redemption'"
+            :data-img="'image/redemption-icon.png'"
+          />
+        </nuxt-link>
+
         <CardRegistrasi
-          v-for="list in lists"
-          :key="list.title"
-          :data-title="list.title"
-          :data-img="list.icon"
-        ></CardRegistrasi>
+          :data-title="'Cek Data Registrasi'"
+          :data-img="'image/regist-icon.png'"
+        />
+
+        <CardRegistrasi
+          :data-title="'Transaksi Penukaran'"
+          :data-img="'image/gift-icon.png'"
+        />
       </div>
 
       <Title
@@ -97,7 +119,11 @@
             <template #thead>
               <thead>
                 <tr>
-                  <th class="px-1 py-1" v-for="list in listThead" :key="list">
+                  <th
+                    class="px-1 py-1"
+                    v-for="list in listTheadPercent"
+                    :key="list"
+                  >
                     <p
                       class="
                         bg-purple-50
@@ -136,7 +162,11 @@
             <template #thead>
               <thead>
                 <tr>
-                  <th class="px-1 py-1" v-for="list in listThead" :key="list">
+                  <th
+                    class="px-1 py-1"
+                    v-for="list in listTheadPercent"
+                    :key="list"
+                  >
                     <p
                       class="
                         bg-purple-50
@@ -195,15 +225,60 @@
               </thead>
             </template>
             <template #trow>
-              <tr class="py-2">
-                <td class="px-1 py-1 text-left text-xxs">{{}}</td>
+              <tr
+                v-for="data in dataPoinQuarter"
+                :key="data.quarter"
+                class="py-2"
+              >
+                <td class="px-1 py-1 text-left text-xxs">{{ data.quarter }}</td>
                 <td class="py-1 text-left proportional-nums text-xxs">
-                  Rp. {{}}
+                  Rp. {{ data.targetconvert }}
                 </td>
                 <td class="py-1 proportional-nums text-xxs text-left">
-                  Rp. {{}}
+                  Rp. {{ data.aktualconvert }}
                 </td>
-                <td class="px-0 py-1 proportional-nums text-xxs">{{}}</td>
+                <td class="px-0 py-1 proportional-nums text-xxs">
+                  {{ data.pencapaian }}
+                </td>
+              </tr>
+            </template>
+          </TableFourColoumn>
+          <TableFourColoumn
+            :title-header="'RINGKASAN PENJUALAN PER TAHUN'"
+            :style-header="'px-2 py-3 bg-purple-900 border-2 rounded-t-2xl'"
+          >
+            <template #thead>
+              <thead>
+                <tr>
+                  <th class="px-1 py-1" v-for="list in listThead" :key="list">
+                    <p
+                      class="
+                        bg-purple-50
+                        rounded-full
+                        text-gray-400
+                        px-3.5
+                        py-2
+                        text-xxs
+                      "
+                    >
+                      {{ list }}
+                    </p>
+                  </th>
+                </tr>
+              </thead>
+            </template>
+            <template #trow>
+              <tr v-for="data in dataPoin" :key="data.month" class="py-2">
+                <td class="px-1 py-1 text-left text-xxs">{{ data.month }}</td>
+                <td class="py-1 text-left proportional-nums text-xxs">
+                  Rp. {{ data.targetconvert }}
+                </td>
+                <td class="py-1 proportional-nums text-xxs text-left">
+                  Rp. {{ data.aktualconvert }}
+                </td>
+                <td class="px-0 py-1 proportional-nums text-xxs">
+                  {{ data.achieveconvert }}
+                </td>
               </tr>
             </template>
           </TableFourColoumn>
@@ -225,7 +300,13 @@ import listContentCard from '../../data/list-content-card.json'
 import TableTwoColoumn from '../molecules/TableTwoColoumn.vue'
 import Navbar from '../molecules/Navbar.vue'
 export default {
-  props: ['dataOutlet', 'dataQuarter', 'dataMonth'],
+  props: [
+    'dataOutlet',
+    'dataQuarter',
+    'dataMonth',
+    'dataPoinQuarter',
+    'dataPoin',
+  ],
   components: {
     Title,
     Subtitle,
@@ -240,7 +321,8 @@ export default {
     return {
       lists: listCardRegistrasi.list,
       contents: listContentCard.list3,
-      listThead: ['BULAN', 'TARGET', 'AKTUAL', '%'],
+      listTheadPercent: ['BULAN', 'TARGET', 'AKTUAL', '%'],
+      listThead: ['BULAN', 'TARGET', 'AKTUAL', 'POIN'],
       tabs: ['Penjualan', 'Point Reward'],
       params: this.$route.params.name,
     }

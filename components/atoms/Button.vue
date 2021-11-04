@@ -1,8 +1,8 @@
 <template>
   <div :class="styleButton">
-    <a :class="styleTitleButton">
+    <button @click="$emit('tesClick')" :class="styleTitleButton">
       <p>{{ titleButton }}</p>
-    </a>
+    </button>
   </div>
 </template>
 
@@ -22,5 +22,6 @@ export default {
       required: true,
     },
   },
+  methods: {},
 }
 </script>

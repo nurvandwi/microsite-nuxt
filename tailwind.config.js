@@ -24,7 +24,7 @@ module.exports = {
         '5/7': '71.4285714%',
         '6/7': '85.7142857%',
         '7/7': '86%',
-        '8/7': '98%',
+        '8/7': '99%',
       },
       colors: {
         orange: '#F26420',
@@ -46,7 +46,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active'],
+    },
   },
   plugins: [],
 }

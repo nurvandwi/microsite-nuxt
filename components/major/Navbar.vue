@@ -1,49 +1,26 @@
 <template>
   <div class="bg-purple-900">
-    <div class="grid grid-cols-12 gap-4">
-      <svg
-        class="px-3 col-span-2"
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        width="48"
-        height="48"
-        viewBox="0 0 172 172"
-        style="fill: #000000"
-      >
-        <g
-          fill="none"
-          fill-rule="nonzero"
-          stroke="none"
-          stroke-width="1"
-          stroke-linecap="butt"
-          stroke-linejoin="miter"
-          stroke-miterlimit="10"
-          stroke-dasharray=""
-          stroke-dashoffset="0"
-          font-family="none"
-          font-weight="none"
-          font-size="none"
-          text-anchor="none"
-          style="mix-blend-mode: normal"
-        >
-          <path d="M0,172v-172h172v172z" fill="none"></path>
-          <g fill="#ffffff">
-            <path
-              d="M48.27002,46.53434c-1.39592,0.04068 -2.72121,0.62301 -3.69531,1.6237l-35.83333,35.83333c-2.09823,2.0991 -2.09823,5.50149 0,7.60059l35.83333,35.83333c1.34815,1.40412 3.35005,1.96971 5.23364,1.47866c1.88359,-0.49105 3.35456,-1.96202 3.84561,-3.84561c0.49105,-1.88359 -0.07455,-3.88549 -1.47866,-5.23364l-26.65804,-26.65804h133.94108c1.93842,0.02741 3.74144,-0.99102 4.71865,-2.66532c0.97721,-1.6743 0.97721,-3.74507 0,-5.41937c-0.97721,-1.6743 -2.78023,-2.69273 -4.71865,-2.66532h-133.94108l26.65804,-26.65804c1.58706,-1.54566 2.06336,-3.90666 1.19966,-5.94673c-0.8637,-2.04007 -2.89048,-3.34134 -5.10493,-3.27756z"
-            ></path>
-          </g>
-        </g>
-      </svg>
-      <p class="text-center text-md text-white col-span-8 self-center">
-        RINGKASAN DATA PENJUALAN
-      </p>
+    <div class="flex py-3 px-4">
+      <div class="mr-auto items-center">
+        <img src="image/left_arrow.svg" alt="" srcset="" />
+      </div>
+      <div class="self-center mx-auto">
+        <Paragraph
+          :paragraph="'RINGKASAN DATA PENJUALAN'"
+          :styleParagraph="'text-center text-md text-white'"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Paragraph from '../atoms/Paragraph.vue'
+export default {
+  components: {
+    Paragraph,
+  },
+}
 </script>
 
 <style>

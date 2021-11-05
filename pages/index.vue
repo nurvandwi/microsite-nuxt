@@ -1,14 +1,14 @@
 <template>
   <div>
-    <HomeBackground />
+    <TemplateHome />
   </div>
 </template>
 
 <script>
-import HomeBackground from '../components/minor/HomeBackground.vue'
+import TemplateHome from '../components/Template/TemplateHome.vue'
 export default {
   components: {
-    HomeBackground,
+    TemplateHome,
   },
 }
 </script>

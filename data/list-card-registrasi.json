@@ -1,0 +1,20 @@
+{
+    "list": [
+        {
+            "title": "Foto atau Upload Formulir Registrasi",
+            "icon": "image/registrasi-icon.png"
+        },
+        {
+            "title": "Foto atau Upload Formulir Redemption",
+            "icon": "image/redemption-icon.png"
+        },
+        {
+            "title": "Cek Data Registrasi",
+            "icon": "image/regist-icon.png"
+        },
+        {
+            "title": "Transaksi Penukaran",
+            "icon": "image/gift-icon.png"
+        }
+    ]
+}

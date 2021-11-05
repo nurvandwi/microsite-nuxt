@@ -1,11 +1,14 @@
 <template>
   <div>
-    <Navbar />
-    <div class="px-2">
-      <Heading
-        class="py-2"
-        :heading="'Foto atau Unggah Formulir Registrasi'"
-        :subheading="'Formulir registrasi difoto / diunggah jika sudah datanya'"
+    <Navbar :NavTitle="'FORMULIR REGISTRASI'" />
+    <div class="px-2 py-2">
+      <Title
+        :styleTitle="'text-black font-bold'"
+        :title="'Foto atau Unggah Formulir Registrasi'"
+      />
+      <Subtitle
+        :subtitle="'Formulir Registrasi difoto / diunggah jika sudah datanya'"
+        :styleSubtitle="'text-xs'"
       />
       <div class="py-2">
         <div class="border-2 border-gray-400 rounded-xl py-10">
@@ -49,69 +52,38 @@
           </p>
         </div>
       </div>
-      <div
-        class="
-          border-2 border-gray-400
-          rounded-full
-          text-center
-          bg-purple-200
-          py-3
-        "
-      >
-        <button>
-          <p class="">Kirim Formulir Registrasi</p>
-        </button>
-      </div>
-
-      <Heading
-        class="py-2"
-        :heading="'Formulir Penukaran '"
-        :subheading="'Tekan foto dibawah ini untuk melihat detail'"
+      <Button
+        :titleButton="'Kirim Formulir Registrasi'"
+        :styleTitleButton="'text-base'"
+        :styleButton="'border-2 border-gray-400 rounded-full text-center bg-purple-200 py-3'"
       />
-      <div class="grid grid-cols-4 gap-2">
-        <div class="py-2 col-span-2">
-          <div class="border-2 border-gray-400 rounded-xl">
-            <img
-              class="object-cover rounded-xl"
-              src="~/assets/image/mdls.png"
-              alt=""
-              srcset=""
-            />
-            <div class="bg-purple-200 rounded-b-xl">
-              <div class="grid grid-cols-8 py-1">
-                <div class="col-start-1">
-                  <img
-                    src="https://img.icons8.com/material-outlined/20/000000/camera--v2.png"
-                  />
-                </div>
-                <p
-                  class="
-                    font-bold
-                    text-xxs
-                    col-start-2 col-end-7
-                    text-center
-                    self-center
-                  "
-                >
-                  22 November 2021
-                </p>
-                <p class="font-bold text-xs self-center">13:56</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Title
+        class="pt-2"
+        :styleTitle="'text-black font-bold'"
+        :title="'Formulir Registrasi'"
+      />
+      <Subtitle
+        :subtitle="'Tekan foto di bawah ini untuk melihat detail'"
+        :styleSubtitle="'text-xs'"
+      />
+      <CardPhoto />
     </div>
   </div>
 </template>
 
 <script>
-import Heading from '../components/major/Heading.vue'
-import Navbar from '../components/major/Navbar.vue'
+import CardPhoto from '../molecules/CardPhoto.vue'
+import Button from '../atoms/Button.vue'
+import Subtitle from '../atoms/Subtitle.vue'
+import Title from '../atoms/Title.vue'
+import Navbar from '../molecules/Navbar.vue'
 export default {
   components: {
+    CardPhoto,
+    Button,
+    Subtitle,
     Navbar,
-    Heading,
+    Title,
   },
 }
 </script>

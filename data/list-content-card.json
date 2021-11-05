@@ -1,0 +1,28 @@
+{
+    "list": [
+        {
+            "icon": "/static/image/trophy-icon",
+            "title": "Pencapaian"
+        },
+        {
+            "icon": "",
+            "title": "AO VS RO"
+        },
+        {
+            "icon": "",
+            "title": "Registrasi"
+        },
+        {
+            "icon": "",
+            "title": "Registrasi 1"
+        },
+        {
+            "icon": "",
+            "title": "Total Outlet"
+        },
+        {
+            "icon": "",
+            "title": "Progress"
+        }
+    ]
+}

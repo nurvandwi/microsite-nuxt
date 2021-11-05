@@ -8,17 +8,28 @@
         />
       </div>
       <div class="self-center">
-        <p class="text-sm">Pencapaian</p>
+        <p class="text-sm">{{ title }}</p>
       </div>
       <div class="bg-gray-300 rounded-full py-1 px-1">
-        <p class="text-sm font-bold">80,90%</p>
+        <p class="text-sm font-bold">{{ point }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    point: {
+      type: String,
+      required: true,
+    },
+  },
+}
 </script>
 
 <style>

@@ -2,8 +2,8 @@
   <div class="py-2">
     <div class="border-2 border-gray-400 rounded-xl">
       <img
-        class="object-cover rounded-xl"
-        src="image/mdls.png"
+        class="object-cover rounded-xl h-full w-full"
+        :src="img"
         alt=""
         srcset=""
       />
@@ -14,8 +14,9 @@
               src="https://img.icons8.com/material-outlined/24/000000/camera--v2.png"
             />
           </div>
-          <p class="col-span-7 self-center font-bold text-xs">22 Janury 2021</p>
-          <p class="font-bold self-center text-xs">13:56</p>
+          <p class="col-span-10 self-center font-bold text-xs">
+            {{ tanggalUpload }}
+          </p>
         </div>
       </div>
     </div>
@@ -23,7 +24,17 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['tanggalUpload', 'img'],
+  watch: {
+    img(newVal, oldVal) {
+      console.log('value changed from ' + oldVal + ' to ' + newVal)
+    },
+  },
+  data() {
+    return {}
+  },
+}
 </script>
 
 <style>

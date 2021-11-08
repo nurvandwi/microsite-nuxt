@@ -117,6 +117,7 @@ export default {
       ],
       tabCategories: '',
       dataWilayah: [],
+      dataRegion: [],
     }
   },
 
@@ -135,10 +136,8 @@ export default {
     setData() {
       this.dataWilayah = this.dataTableWilayah
     },
+
     addParams(value) {
-      // this.$router.replace({
-      //   path: `${this.$route.path}/${value.toLowerCase()}`,
-      // })
       this.$router.push({
         path: `${this.$route.path}`,
         query: { value },

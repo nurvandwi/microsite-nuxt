@@ -72,7 +72,7 @@
           </p>
         </div>
         <div
-          class="self-center col-span-5 px-2"
+          class="self-center col-span-5 px-2 text-center"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Outlet'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-outlet/${title_id}`">
@@ -84,7 +84,7 @@
           </nuxt-link>
         </div>
         <div
-          class="self-center col-span-5 px-2"
+          class="self-center col-span-5 px-2 text-center"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Wilayah'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-wilayah/${title_id}`">
@@ -96,7 +96,7 @@
           </nuxt-link>
         </div>
         <div
-          class="self-center col-span-5 px-2"
+          class="self-center col-span-5 px-2 text-center"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Region'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-region/${title_id}`">
@@ -109,7 +109,7 @@
         </div>
 
         <div
-          class="self-center col-span-5 px-2"
+          class="self-center col-span-5 px-2 text-center"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Area'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-area/${title_id}`">
@@ -121,14 +121,14 @@
           </nuxt-link>
         </div>
         <div
-          class="self-center col-span-5 px-2"
+          class="self-center col-span-5 px-2 text-center"
           v-if="$route.fullPath == '/penjualan-perwilayah?value=Distributor'"
         >
           <nuxt-link :to="`/ringkasan-penjualan-distributor/${title_id}`">
             <Button
               :title-button="'Detail'"
               :style-button="'border-2 rounded-full py-1 bg-pink-300 w-full col-span-4'"
-              :style-title-button="'text-xs text-black font-bold text-center'"
+              :style-title-button="'text-xs text-black font-bold '"
             />
           </nuxt-link>
         </div>
